@@ -4,6 +4,9 @@ import { RouterProvider } from 'react-router-dom'
 import { router } from '@/routes'
 import { ThemeProvider } from '@/context/ThemeContext'
 
+// Initialize Prism syntax highlighting runtime
+import '@/lib/prism'
+
 // Fontsource Typography
 import '@fontsource/inter/400.css'
 import '@fontsource/inter/500.css'

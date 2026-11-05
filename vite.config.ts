@@ -21,7 +21,12 @@ export default defineConfig({
           if (id.includes('node_modules/framer-motion/')) {
             return 'vendor-motion'
           }
-          if (id.includes('node_modules/prismjs/')) {
+          if (
+            id.includes('node_modules/prismjs/') ||
+            id.includes('node_modules\\prismjs\\') ||
+            id.includes('/src/lib/prism') ||
+            id.includes('\\src\\lib\\prism')
+          ) {
             return 'vendor-syntax'
           }
           if (id.includes('node_modules/lucide-react/')) {

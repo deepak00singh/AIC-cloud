@@ -1,12 +1,5 @@
 import React, { useState, useMemo } from 'react'
-import Prism from 'prismjs'
-import 'prismjs/components/prism-javascript'
-import 'prismjs/components/prism-typescript'
-import 'prismjs/components/prism-bash'
-import 'prismjs/components/prism-json'
-import 'prismjs/components/prism-python'
-import 'prismjs/components/prism-go'
-import 'prismjs/components/prism-http'
+import Prism from '@/lib/prism'
 import { Check, Copy } from 'lucide-react'
 import { cn } from '@/utils'
 
@@ -39,15 +32,18 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({
   }
 
   const highlightedHtml = useMemo(() => {
-    const grammar = Prism.languages[language] || Prism.languages.javascript
-    if (grammar) {
-      try {
-        return Prism.highlight(code, grammar, language)
-      } catch {
+    try {
+      if (!Prism || !Prism.languages) {
         return code
       }
+      const grammar = Prism.languages[language] || Prism.languages.javascript || Prism.languages.clike
+      if (grammar) {
+        return Prism.highlight(code, grammar, language)
+      }
+      return code
+    } catch {
+      return code
     }
-    return code
   }, [code, language])
 
   const lines = useMemo(() => code.split('\n'), [code])
