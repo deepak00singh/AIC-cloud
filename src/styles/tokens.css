@@ -1,0 +1,79 @@
+/**
+ * AIC Cloud Documentation Portal - Design Tokens
+ * Master primitives and foundational variables
+ */
+
+:root {
+  /* Brand Palette */
+  --brand-primary: #4F46E5;
+  --brand-primary-hover: #4338CA;
+  --brand-secondary: #7C3AED;
+  --brand-navy: #111827;
+  --brand-charcoal: #1F2937;
+
+  /* Typography Families */
+  --font-family-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  --font-family-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* Typography Scale */
+  --font-size-display: 48px;
+  --line-height-display: 56px;
+
+  --font-size-h1: 36px;
+  --line-height-h1: 44px;
+
+  --font-size-h2: 28px;
+  --line-height-h2: 36px;
+
+  --font-size-h3: 22px;
+  --line-height-h3: 30px;
+
+  --font-size-h4: 18px;
+  --line-height-h4: 26px;
+
+  --font-size-body-large: 17px;
+  --line-height-body-large: 28px;
+
+  --font-size-body: 15px;
+  --line-height-body: 25px;
+
+  --font-size-body-small: 13px;
+  --line-height-body-small: 20px;
+
+  --font-size-caption: 12px;
+  --line-height-caption: 18px;
+
+  --font-size-code: 13px;
+  --line-height-code: 21px;
+
+  /* Spacing Scale (4px base) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+
+  /* Border Radius */
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-full: 9999px;
+
+  /* Shadows (Restrained, subtle) */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.07);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.06);
+
+  /* Transitions */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
