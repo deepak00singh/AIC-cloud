@@ -75,7 +75,7 @@ export const TopNavbar: React.FC<TopNavbarProps> = ({
             type="button"
             onClick={onToggleMobileSidebar}
             aria-label="Open documentation navigation"
-            className="lg:hidden p-2 rounded-[var(--radius-md)] text-[var(--color-foreground-secondary)] hover:text-[var(--color-foreground)] hover:bg-[var(--color-background-secondary)] cursor-pointer"
+            className="lg:hidden h-9 w-9 flex items-center justify-center rounded-xl border border-[var(--color-border)] bg-[var(--color-background-secondary)]/80 text-[var(--color-foreground)] hover:bg-[var(--color-surface)] hover:text-[var(--color-primary)] active:scale-95 transition-all cursor-pointer shadow-2xs"
           >
             <Menu className="h-5 w-5" />
           </button>

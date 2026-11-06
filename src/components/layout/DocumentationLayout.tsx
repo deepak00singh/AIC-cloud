@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import { Outlet, useLocation } from 'react-router-dom'
 import { TopNavbar } from './TopNavbar'
 import { Sidebar } from './Sidebar'
@@ -11,6 +11,11 @@ export const DocumentationLayout: React.FC = () => {
   const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false)
   const location = useLocation()
   const isHomePage = location.pathname === '/'
+
+  const handleOpenSearch = useCallback(() => setIsSearchOpen(true), [])
+  const handleCloseSearch = useCallback(() => setIsSearchOpen(false), [])
+  const handleOpenMobileSidebar = useCallback(() => setIsMobileSidebarOpen(true), [])
+  const handleCloseMobileSidebar = useCallback(() => setIsMobileSidebarOpen(false), [])
 
   // Global keyboard shortcut for search dialog (Ctrl+K / Cmd+K)
   useEffect(() => {
@@ -29,14 +34,14 @@ export const DocumentationLayout: React.FC = () => {
     <div className="min-h-screen bg-[var(--color-background)] text-[var(--color-foreground)] transition-colors flex flex-col">
       {/* Top Fixed/Sticky Navbar */}
       <TopNavbar
-        onOpenSearch={() => setIsSearchOpen(true)}
-        onToggleMobileSidebar={() => setIsMobileSidebarOpen(true)}
+        onOpenSearch={handleOpenSearch}
+        onToggleMobileSidebar={handleOpenMobileSidebar}
       />
 
       {/* Main Content Area */}
       {isHomePage ? (
         <main className="flex-1 w-full flex flex-col">
-          <Outlet context={{ onOpenSearch: () => setIsSearchOpen(true) }} />
+          <Outlet context={{ onOpenSearch: handleOpenSearch }} />
         </main>
       ) : (
         <div className="flex-1 w-full max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 flex">
@@ -47,7 +52,7 @@ export const DocumentationLayout: React.FC = () => {
 
           {/* Dynamic Nested Content Route */}
           <div className="flex-1 min-w-0">
-            <Outlet context={{ onOpenSearch: () => setIsSearchOpen(true) }} />
+            <Outlet context={{ onOpenSearch: handleOpenSearch }} />
           </div>
         </div>
       )}
@@ -58,13 +63,13 @@ export const DocumentationLayout: React.FC = () => {
       {/* Mobile Drawer Navigation */}
       <MobileSidebar
         isOpen={isMobileSidebarOpen}
-        onClose={() => setIsMobileSidebarOpen(false)}
+        onClose={handleCloseMobileSidebar}
       />
 
       {/* Global Search Dialog Modal */}
       <SearchDialog
         isOpen={isSearchOpen}
-        onClose={() => setIsSearchOpen(false)}
+        onClose={handleCloseSearch}
       />
     </div>
   )
