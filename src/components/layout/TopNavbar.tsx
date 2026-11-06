@@ -186,17 +186,27 @@ export const TopNavbar: React.FC<TopNavbarProps> = ({
 
         {/* Right Side: Search, Theme Toggle, Dashboard */}
         <div className="flex items-center gap-2 shrink-0">
-          {/* Search Trigger Button */}
+          {/* Mobile Search Icon Button (Icon Only on Mobile) */}
           <button
             type="button"
             onClick={onOpenSearch}
-            className="flex items-center gap-2.5 h-9 px-3 rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-background-secondary)] text-[var(--color-foreground-muted)] hover:border-[var(--color-primary)]/40 hover:text-[var(--color-foreground)] transition-all cursor-pointer text-xs w-36 sm:w-56 justify-between shadow-xs"
+            aria-label="Search documentation"
+            className="sm:hidden h-9 w-9 flex items-center justify-center rounded-xl border border-[var(--color-border)] bg-[var(--color-background-secondary)]/80 text-[var(--color-foreground)] hover:bg-[var(--color-surface)] hover:text-[var(--color-primary)] active:scale-95 transition-all cursor-pointer shadow-2xs"
+          >
+            <Search className="h-4 w-4" />
+          </button>
+
+          {/* Desktop Search Trigger Bar */}
+          <button
+            type="button"
+            onClick={onOpenSearch}
+            className="hidden sm:flex items-center gap-2.5 h-9 px-3 rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-background-secondary)] text-[var(--color-foreground-muted)] hover:border-[var(--color-primary)]/40 hover:text-[var(--color-foreground)] transition-all cursor-pointer text-xs w-56 justify-between shadow-xs"
           >
             <div className="flex items-center gap-2 truncate">
               <Search className="h-3.5 w-3.5 shrink-0" />
               <span className="truncate">Search docs...</span>
             </div>
-            <kbd className="hidden sm:inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded border border-[var(--color-border)] bg-[var(--color-surface)] text-[10px] font-mono font-medium text-[var(--color-foreground-muted)] shrink-0">
+            <kbd className="inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded border border-[var(--color-border)] bg-[var(--color-surface)] text-[10px] font-mono font-medium text-[var(--color-foreground-muted)] shrink-0">
               Ctrl K
             </kbd>
           </button>
